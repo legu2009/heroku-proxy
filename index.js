@@ -13,6 +13,7 @@ http.createServer(function (req, res) {
             res.end('hello');
             return;
         }
+        var config = JSON.parse(str);
         var {
             protocol,
             requestOptions,
