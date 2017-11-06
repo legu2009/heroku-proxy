@@ -2,17 +2,14 @@
 
 var http = require('http');
 var AnyProxy = require('anyproxy');
-var _host = 'whispering-plains-65196.herokuapp.com';
-var _port = '80';
-
-_host = 'localhost';
-_port = '8090';
+var _host = 'wgu.herokuapp.com';
+var _port = '443';
 
 var rule = {
     summary: 'modify response',
     * beforeSendRequest(requestDetail, responseDetail) {
         return {
-            protocol: 'http',
+            protocol: 'https',
             requestOptions: {
                 hostname: _host,
                 port: _port,
@@ -23,7 +20,7 @@ var rule = {
                     'Proxy-Connection': 'keep-alive',
                     'Content-Length': '348',
                     'Accept': 'text/plain, */*; q=0.01',
-                    'Origin': 'http://' + _host,
+                    'Origin': 'https://' + _host,
                     'Content-Type': 'application/x-www-form-urlencoded',
                     'Accept-Encoding': 'gzip, deflate',
                     'Accept-Language': 'zh-CN,zh;q=0.9,en;q=0.8,zh-TW;q=0.7',
