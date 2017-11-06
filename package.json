@@ -1,0 +1,24 @@
+{
+  "name": "heroku-proxy",
+  "version": "0.1.1",
+  "description": "A sample Node.js proxy",
+  "engines": {
+    "node": "6.11.1"
+  },
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+  },
+  "devDependencies": {
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/legu2009/heroku-proxy.git"
+  },
+  "keywords": [
+    "node"
+  ],
+  "license": "MIT"
+}
