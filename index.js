@@ -7,7 +7,12 @@ http.createServer(function (req, res) {
         rawResChunks.push(chunk);
     });
     req.on('end', () => {
-        var config = JSON.parse(rawResChunks.join(''));
+        var str = rawResChunks.join('');
+        if (!str) {
+            res.writeHead('200', { 'Content-Type': 'text/plain' });
+            res.end('hello');
+            return;
+        }
         var {
             protocol,
             requestOptions,
