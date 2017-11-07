@@ -2,15 +2,12 @@
   "name": "heroku-proxy",
   "version": "0.1.1",
   "description": "A sample Node.js proxy",
-  "engines": {
-    "node": "6.11.1"
-  },
   "main": "index.js",
   "scripts": {
     "start": "node index.js"
   },
   "dependencies": {
-    "anyproxy": "^4.0.0-beta18"
+    "anyproxy": "git@github.com:legu2009/anyproxy.git"
   },
   "devDependencies": {},
   "repository": {

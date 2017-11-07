@@ -21,12 +21,7 @@ http.createServer(function (req, res) {
         } = config;
         const proxyReq = (/https/i.test(protocol) ? https : http).request(requestOptions, proxyRes => {
             res.writeHead(proxyRes.statusCode, proxyRes.headers);
-            proxyRes.on('data', (chunk) => {
-                res.write(chunk);
-            });
-            proxyRes.on('end', () => {
-                res.end();
-            });
+            proxyRes.pipe(res);
         });
         proxyReq.on('error', (error) => {
             res.end();
