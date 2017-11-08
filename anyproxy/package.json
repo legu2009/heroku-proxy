@@ -7,7 +7,7 @@
     "start": "node index.js"
   },
   "dependencies": {
-    "anyproxy": "git@github.com:legu2009/anyproxy.git"
+    "anyproxy": "https://github.com/legu2009/heroku-proxy.git#4.x"
   },
   "devDependencies": {},
   "repository": {
