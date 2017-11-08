@@ -4,17 +4,11 @@ var http = require('http');
 var AnyProxy = require('anyproxy');
 
 
-var _protocol = 'https';
-var _host = 'wgu.herokuapp.com';
-var _host = 'wgu-legu2009.c9users.io';
 
-var _port = _protocol === 'https' ? '443' : '80';
+var _protocol = 'http';
+var _host = 'localhost';
+var _port = '8090';
 
-/*
-_protocol = 'http';
-_host = 'localhost';
-_port = '8090';
-*/
 
 var rule = {
     summary: 'modify response',
@@ -27,7 +21,7 @@ var rule = {
         }
         requestOptions.hostname = requestOptions.headers.Host = _host;
         requestOptions.port = _port;
-        requestOptions.headers['proxy_wgu_Origin'] = JSON.stringify(origin);
+        requestOptions.headers['proxy_wgu_origin'] = JSON.stringify(origin);
         return {
             protocol: _protocol,
             requestOptions
