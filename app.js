@@ -2,7 +2,6 @@ const http = require('http'),
     https = require('https');
 
 http.createServer(function (req, res) {
-    console.log(req);
     const rawResChunks = [];
     req.on('data', (chunk) => {
         rawResChunks.push(chunk);
