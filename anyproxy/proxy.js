@@ -11,7 +11,7 @@ for (var i = 2; i < 11; i++) {
     hosts.push("w" + i + ".legu2009.workers.dev");
 }
 
-var hosts = ["https://nextjs-89415119.vercel.app"];
+var hosts = ["https://nextjs-89415119.vercel.app", "https://nodejs-lime.vercel.app"];
 var index = 0;
 
 var rule = {
