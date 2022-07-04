@@ -25,4 +25,4 @@ http.createServer(function (req, res) {
     proxyReq.on("error", error => {
         res.end();
     });
-}).listen(process.env.port || 3000);
+}).listen(process.env.PORT || process.env.port || 3000);
