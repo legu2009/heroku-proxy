@@ -1,3 +1,6 @@
+var http = require("http");
+var AnyProxy = require("anyproxy");
+
 const hosts = ["https://nextjs-89415119.vercel.app", "https://nodejs-lime.vercel.app"];
 var index = 0;
 
