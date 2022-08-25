@@ -1,7 +1,7 @@
 var http = require("http");
 var AnyProxy = require("anyproxy");
 
-const hosts = ["https://nextjs-89415119.vercel.app", "https://nodejs-lime.vercel.app"];
+const hosts = [];
 var index = 0;
 
 const rule = {
