@@ -1,7 +1,7 @@
 var http = require("http");
 var AnyProxy = require("anyproxy");
 
-const hosts = [];
+const hosts = ["https://nextjs-89415119.vercel.app", "https://nodejs-lime.vercel.app"];
 var index = 0;
 
 const rule = {
@@ -33,7 +33,8 @@ const proxyServer = new AnyProxy.ProxyServer({
     port: 8001,
     rule: rule,
     webInterface: {
-        enable: false,
+        enable: true,
+        webPort: 8002
     },
     wsIntercept: false,
     forceProxyHttps: true, //是否强制拦截所有的https
