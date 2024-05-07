@@ -32,3 +32,36 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+
+const http = require("http"),
+    https = require("https");
+
+export default async function handler(req, res) {
+    const origin = req.headers["proxy_wgu_origin"];
+    const method = req.headers["proxy_wgu_method"];
+
+    if (!origin) {
+        res.writeHead("200", {
+            "Content-Type": "text/plain",
+        });
+        res.end("hello");
+        return;
+    }
+    
+    const newUrl = new URL(origin);
+    delete req.headers["proxy_wgu_origin"];
+    req.headers.host = newUrl.host;
+    const proxyReq = (newUrl.protocol === "https" ? https : http).request(newUrl.toString(), {
+        method,
+        headers: req.headers,
+    }, proxyRes => {
+        res.writeHead(proxyRes.statusCode, proxyRes.headers);
+        proxyRes.pipe(res);
+    });
+    req.pipe(proxyReq);
+    proxyReq.on("error", error => {
+        res.end();
+    });
+
+}
